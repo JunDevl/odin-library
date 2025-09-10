@@ -18,7 +18,7 @@ function Book(title, author, pages, wasRead) {
 
 Book.prototype.toggleRead = function () { this.wasRead = !this.wasRead; };
 
-function addToLibrary(...books) {
+function insertToLibrary(...books) {
 
   const generateBookElement = (book) => {
     const container = document.createElement("div");
@@ -69,7 +69,22 @@ function addToLibrary(...books) {
   }
 }
 
-addToLibrary(
+function removeFromLibrary(...bookIndexes) {
+  const purgeBookElement = (book) => {
+    const container = document.querySelector(`[index=${book.index}]`);
+    container.remove();
+  };
+
+  for (bookIndex of bookIndexes) {
+    const book = Array.from(library)[bookIndex];
+
+    if (!book) throw new Error("Can't remove a book that doesn't exist on your library!");
+
+    library.delete(book[0]);
+  }
+}
+
+insertToLibrary(
   {
     title: "Vann daime",
     author: "Jun Pedia",
@@ -87,5 +102,4 @@ addToLibrary(
   }
 );
 
-console.log(book);
-console.log(library);
+console.log(library.get(0));
