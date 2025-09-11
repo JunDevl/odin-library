@@ -1,0 +1,110 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../resources/Roboto-Regular.woff2') format('woff2'),
+    url('../resources/Roboto-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --book-border-radius: 20px;
+
+  font-size: 26px;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-title {
+  padding-left: 3rem;
+  align-self: flex-start;
+}
+
+.lib-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.library {
+  font-size: 14px;
+  width: 90%;
+  padding: 1rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit ,minmax(150px, 250px));
+  grid-template-rows: repeat(auto-fit, 150px);
+  gap: 1rem;
+}
+
+.author, .pages {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.read {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.book {
+  position: relative;
+  background-color: azure;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--book-border-radius);
+  box-shadow: -10px 10px 20px -6px;
+}
+
+.book * {
+  text-align: center;
+  flex: 1;
+}
+
+.add {
+  align-self: stretch;
+}
+
+#include {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--book-border-radius);
+  font-size: 2.5rem;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+p, svg.trash {
+  margin: 0;
+  padding: 0;
+}
+
+svg.trash {
+  width: 1.5rem;
+  padding: 0.1rem;
+  height: auto;
+  background-color: red;
+  fill: white;
+}
+
+path {
+  pointer-events: none;
+}
